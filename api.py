@@ -1,7 +1,5 @@
 from fastapi import FastAPI
-from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
 from src.db import db
 
 
@@ -19,7 +17,8 @@ async def say_hello(name: str):
 @app.get("/customers/birthday")
 async def customers_birthday():
 
-    cursor = db.cursor()
+    db_conn = db()
+    cursor = db_conn.cursor()
 
     cursor.execute(
         "SELECT id, `name` "
@@ -27,18 +26,14 @@ async def customers_birthday():
         "WHERE (MONTH(birthdate) = MONTH(NOW())) AND (DAY(birthdate) = DAY(NOW()))"
     )
 
-    class Customer(BaseModel):
-        customer_id: int
-        customer_first_name: str
-
-    response = []
+    response = {'customers': []}
     for (id, name) in cursor:
 
-        response.append({
+        response['customers'].append({
             'customer_id': id,
             'customer_first_name': name
         })
 
     cursor.close()
 
-    return response
+    return JSONResponse(content=response, headers={'Content-Type': 'application/json'})

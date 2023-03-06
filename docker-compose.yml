@@ -24,9 +24,14 @@ services:
     volumes:
       - app:/usr/src/app
     ports:
-      - "8088:8088"
+      - "5057:5057"
     expose:
-      - 8088
+      - 5057
+    environment:
+      MARIAS_FAST_API_DB_USER: ${MARIAS_FAST_API_DB_USER}
+      MARIAS_FAST_API_DB_USER_PASSWORD: ${MARIAS_FAST_API_DB_USER_PASSWORD}
+      MARIAS_FAST_API_DB_HOST: mariadb
+      MARIAS_FAST_API_DB_PORT: 3306
 
 volumes:
   database_data:

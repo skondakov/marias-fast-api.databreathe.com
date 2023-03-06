@@ -17,4 +17,11 @@ db_config = {
 
 
 def db():
+
+  ## TODO add exception handling
+    try:
+        db = mysql.connector.connect(**db_config)
+    except Exception as e:
+      pass
+
     return mysql.connector.connect(**db_config)
