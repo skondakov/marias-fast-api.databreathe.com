@@ -1,0 +1,32 @@
+version: '3.5'
+services:
+
+  mariadb:
+    build: ./Docker/MariaDB
+    expose:
+      - 3306
+    ports:
+      - "${MARIAS_FAST_API_MYSQL_PORT}:3306"
+    volumes:
+      - database_data:/var/lib/MariaDB
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MARIAS_FAST_API_MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: marias-fast-api
+      MYSQL_USER: ${MARIAS_FAST_API_MYSQL_USER}
+      MYSQL_PASSWORD: ${MARIAS_FAST_API_MYSQL_USER_PASSWORD}
+
+  api-server:
+    build:
+      context: .
+      dockerfile: ./Docker/APIServer/Dockerfile
+    depends_on:
+      - mariadb
+    ports:
+      - "5057:5057"
+    expose:
+      - 5057
+
+volumes:
+  database_data:
+    driver: local
+
