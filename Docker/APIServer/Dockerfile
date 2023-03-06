@@ -1,10 +1,10 @@
 FROM python:3.11
 
+# Copy the whole project files in the user app dir
+COPY . /usr/src/app
+
 WORKDIR /usr/src/app
 
-COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY api.py .
-
-CMD uvicorn api:app --host localhost --port 5057
+CMD uvicorn api:app --host localhost --port 8088
