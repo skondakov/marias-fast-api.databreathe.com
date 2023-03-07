@@ -7,7 +7,7 @@
 ### Requirements
 
 * [Docker for Windows](https://www.docker.com/docker-windows), [Docker for Mac](https://www.docker.com/docker-windows)
-  or [Docker for Linux](https://store.docker.com/search?offering=community&operating_system=linux&q=&type=edition). Just
+  or [Docker for Linux](https://hub.docker.com/search?offering=community&q=&operating_system=linux). Just
   make sure you also have [Docker Compose](https://docs.docker.com/compose/) included in the package you install;
 * [GitHub for Desktop](https://desktop.github.com/) or any other [Git](https://git-scm.com/) client for your OS of
   choice.
