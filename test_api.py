@@ -5,9 +5,10 @@
 """
 
 from fastapi.testclient import TestClient
-import re
 from api import app
+import re
 
+# This is the test client object that will test the app
 client = TestClient(app)
 
 

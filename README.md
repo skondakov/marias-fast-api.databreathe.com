@@ -41,6 +41,6 @@
 * **How to rebuild a docker container?:** It is a good practice to rebuild the docker containers you use to make sure
   you always work with the same environment as everywhere else. You can do this
   with `docker-compose build --no-cache <container name i.e. api-server>`
-* **How to run the unit tests?:** In order to run the unit tests you would need to run the database docker container first.
-  You can do this by running `docker-compose up -d mariadb`. Then you have to run `pytest test_api.py` from the project's 
+* **How to run the unit tests?:** In order to run the unit tests you would need to run the api server first.
+  You can do this by running `docker-compose up -d api-server`. Then you have to run `pytest test_api.py` from the project's 
   root dir in order to run the unit tests.
