@@ -36,8 +36,11 @@
 * **Recreate local DB:** Call `docker-compose down -v` and after it's finished, call `docker-compose up -d api-server`
   from the root of your project's working dir. 
 * **How to get into a docker container?:** Sometimes you need to connect to the container to do some job directly. In
-  order to do this you must first execute `docker-compose ps` to see all currently running containers, and then
+  order to do this you must first execute `docker ps` to see all currently running containers, and then
   execute `docker exec -it <container name> bash`. To exit you must simply type `exit`, followed by enter.
 * **How to rebuild a docker container?:** It is a good practice to rebuild the docker containers you use to make sure
   you always work with the same environment as everywhere else. You can do this
   with `docker-compose build --no-cache <container name i.e. api-server>`
+* **How to run the unit tests?:** In order to run the unit tests you would need to run the database docker container first.
+  You can do this by running `docker-compose up -d mariadb`. Then you have to run `pytest test_api.py` from the project's 
+  root dir in order to run the unit tests.
