@@ -1,11 +1,13 @@
 # This script holds the DB access module <
 
 import os
-from dotenv import load_dotenv
 import mysql.connector
+from dotenv import load_dotenv
+from src.logger import logger
 
 load_dotenv()
 
+# Read config values from the env variables #
 db_config = {
   'user': os.getenv('MARIAS_FAST_API_DB_USER'),
   'password': os.getenv('MARIAS_FAST_API_DB_USER_PASSWORD'),
@@ -18,10 +20,9 @@ db_config = {
 
 def db():
 
-  ## TODO add exception handling
     try:
         db = mysql.connector.connect(**db_config)
     except Exception as e:
-      pass
+      logger.error(f"Failed to connecto to MariaDB with exception: {e}")
 
-    return mysql.connector.connect(**db_config)
+    return db
