@@ -1,3 +1,10 @@
+""" Maria's Web Service (Databreathe Backend Coding Challange)
+
+ Databreathe's Backend Code Challange. A FastAPI Web service to retrieve some specific data from a dataset of
+ Maria's shopping outlet business.
+
+"""
+
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
 from src.db import db

@@ -1,6 +1,6 @@
 # Maria's Web Service (Databreathe Backend Coding Challange)
  Databreathe's Backend Code Challange. A FastAPI Web service to retrieve some specific data from a dataset of 
- Maria's shopping outlet business. The app has been conter
+ Maria's shopping outlet business. 
 
 ## Local Environment
 
