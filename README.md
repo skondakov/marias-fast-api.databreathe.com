@@ -23,24 +23,24 @@
    then be started. (NOTE: if you get `ERROR: The Compose file './docker-compose.yml' is invalid`, make sure you
    have set `.env` file properly and it is in the same dir as `docker-compose.yml`);
 1. The API should respond here [http://localhost:5057/](http://localhost:5057/). 
-   You can check if the API is working by accessing this: [http://localhost:5057/ping](http://localhost:5057/ping)
+   You can check if the API is working by accessing this: [http://localhost:5057/ping](http://localhost:5057/ping).
 
 ### Usage
 
-* **Start the API Server:** Run `docker-compose up -d api-server` from the root of your project's working dir.
-* **Stop All Services:** Run `docker-compose down` from the root of your project's working dir.
-* **Update code:** When the web app is started you can freely update code and see the results right away in your
-  browser. Same goes for the API.
+* **Start the API Server:** Run `docker-compose up -d api-server` from the root of your project's working dir;
+* **Stop All Services:** Run `docker-compose down` from the root of your project's working dir;
+* **Update code:** When the app is started you can freely update code and see the results right away in your
+  browser or API client;
 * **Access the DB with a MySQL client:** You can access the application's database with the MySQL credentials you provided 
-  in the `.env` file on **localhost**
+  in the `.env` file on **localhost**;
 * **Recreate local DB:** Call `docker-compose down -v` and after it's finished, call `docker-compose up -d api-server`
-  from the root of your project's working dir. 
+  from the root of your project's working dir;
 * **How to get into a docker container?:** Sometimes you need to connect to the container to do some job directly. In
   order to do this you must first execute `docker ps` to see all currently running containers, and then
-  execute `docker exec -it <container name> bash`. To exit you must simply type `exit`, followed by enter.
+  execute `docker exec -it <container name> bash`. To exit you must simply type `exit`, followed by enter;
 * **How to rebuild a docker container?:** It is a good practice to rebuild the docker containers you use to make sure
   you always work with the same environment as everywhere else. You can do this
-  with `docker-compose build --no-cache <container name i.e. api-server>`
+  with `docker-compose build --no-cache <container name i.e. api-server>`;
 * **How to run the unit tests?:** In order to run the unit tests you would need to run the api server first.
   You can do this by running `docker-compose up -d api-server`. Then you have to run `pytest test_api.py` from the project's 
-  root dir in order to run the unit tests.
+  root dir and the unit testing should start.
